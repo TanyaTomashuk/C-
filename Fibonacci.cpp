@@ -4,21 +4,26 @@
 using std::cout;
 using std::cin;
 
-int fib(int n){
-    if (n == 1) return 1;
-    else if (n == 2) return 2;
-        else return fib(n - 1) + fib(n - 2);
+long long fib_ev(long long n){
+    if (n == 1) return 2;
+    if (n == 2) return 8;
+        else return 4 * fib_ev(n - 1) + fib_ev(n - 2);
 }
 
 int main(){
-    int N;
-    int sum = 0;
+    long long N;
+    long long sum = 0;
     
     cin >> N;
-
-    for (int i = 2; i < N + 1; i += 3){
-            sum += fib(i);
+    if (fib_ev((N + 1) / 3) <= 4'000'000){
+        for (long long i = 1; i <= ((N + 1) / 3); i += 1){
+            sum += fib_ev(i);
+        }
     }
+    else
+        for (long long i = 1; i <= ((N + 1) / 3); i += 1){
+            if (fib_ev(i) <= 4'000'000) sum += fib_ev(i);
+        }
 
     cout << sum;
     return 0;
