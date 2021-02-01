@@ -16,10 +16,8 @@ int main(){
     
     cin >> N;
 
-    for (int i = 1; i < N + 1; i ++){
-        if (fib(i) % 2 == 0){
+    for (int i = 2; i < N + 1; i += 3){
             sum += fib(i);
-        }
     }
 
     cout << sum;
