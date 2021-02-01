@@ -11,22 +11,18 @@ long long fib_ev(long long n){
 }
 
 int main(){
-    long long N;
+    long long i = 1;
     long long sum = 0;
+
     
-    cin >> N;
-    if (fib_ev((N + 1) / 3) <= 4'000'000){
-        for (long long i = 1; i <= ((N + 1) / 3); i += 1){
-            sum += fib_ev(i);
-        }
-    }
-    else
-        for (long long i = 1; i <= ((N + 1) / 3); i += 1){
-            if (fib_ev(i) <= 4'000'000) sum += fib_ev(i);
+    while (fib_ev(i) <= 4'000'000){
+        sum += fib_ev(i);
+        i++;
         }
 
     cout << sum;
     return 0;
 }
+
 
 
